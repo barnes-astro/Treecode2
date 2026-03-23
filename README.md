@@ -1,3 +1,1 @@
 This is a stand-alone implementation of Treecode2 (Barnes 2026; MNRAS, accepted Feb 2, 2026), a gravitational N-body simulation code.  Like previous oct-tree codes, it constructs a hierarchical representation of the mass distribution by enclosing the particles in a "root" cube, which is then recursively subdivided until each particles is isolated in a unique sub-cell.  Treecode2 randomly reorients, repositions, and resizes the root cube at each timestep, improving force accuracy and global conservation of energy, linear momentum, and angular momentum.
-
-NOTE: This code requires the Gnu Scientific Library, but is otherwise self-contained.
