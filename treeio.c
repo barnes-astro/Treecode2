@@ -76,7 +76,7 @@ void startoutput(string defv[])
     csv = TRUE;
   }
   lead = csv ? "#" : "";
-  logstr = strnull(logfile) ? NULL : stropen(logfile, "w!");
+  logstr = strnull(logfile) ? NULL : stropen(logfile, "w");
   if (logstr != NULL) {				// announce start of run
     fprintf(logstr, "%s%s [VERS. %s]: ", lead, getprog(), getversion());
     for (int i = 0; *(defv[i]) == ';'; i++)

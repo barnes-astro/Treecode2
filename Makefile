@@ -1,6 +1,6 @@
-##  zeno/src/nbody/tree/treecode2.1/export/Makefile: compile tree-code.
+##  .../treecode2.1/export/Makefile: compile tree-code.
 ##  Copyright (c) 2026, Joshua E. Barnes, Honolulu, Hawaii.
-##  ____________________________________________________________________
+##  _______________________________________________________
 
 BINFILES = treecode$X treecode_mod$X
 
@@ -13,23 +13,30 @@ BINFILES = treecode$X treecode_mod$X
 
 OPTIONS =
 
+##  Define compilation and loading options.
+##  _______________________________________
+
+ZCC = gcc
+ZCCFLAGS = -std=gnu17 -DLINUX
+ZLDFLAGS =
+
 ##  Optimization flags.
 ##  ___________________
 
 OPT = -O3
 
-ZCCFLAGS = -std=gnu17 -DLINUX -Iclib
-ZLDFLAGS = -Lclib
-
 make_all: $(BINFILES)
 
-##  Build vanilla treecode; by default, includes softening correction.
-##  __________________________________________________________________
+tidy:
+	rm -f *.o *.csv
+
+##  Build standard treecode; by default, includes softening correction.
+##  ___________________________________________________________________
 
 treecode$X: treecode$X.o treeio$X.o treebuild$X.o treegrav$X.o
 	$(ZCC) $(ZLDFLAGS) -o treecode$X treecode$X.o \
 	    treeio$X.o treebuild$X.o treegrav$X.o \
-	    -lClib -lgsl -lgslcblas -lm
+	    clib/libClib.a -lm
 
 treecode$X.o: treecode.c treedefs.h treecode.h
 	$(ZCC) $(ZCCFLAGS) $(OPTIONS) -o treecode$X.o -c treecode.c
@@ -50,7 +57,7 @@ treecode_mod$X: treecode_mod$X.o treeio_mod$X.o treebuild_mod$X.o \
 		treegrav_mod$X.o
 	$(ZCC) $(ZLDFLAGS) -o treecode_mod$X treecode_mod$X.o \
 	    treeio_mod$X.o treebuild_mod$X.o treegrav_mod$X.o \
-	    -lClib -lgsl -lgslcblas -lm
+	    clib/libClib.a -lm
 
 treecode_mod$X.o: treecode.c treedefs.h treecode.h
 	$(ZCC) $(ZCCFLAGS) $(OPTIONS) -DMODTREECODE \
@@ -68,7 +75,7 @@ treegrav_mod$X.o: treegrav_mod.c treedefs.h treewalk.c
 	$(ZCC) $(ZCCFLAGS) $(OPTIONS) $(OPT) -DMODTREECODE \
 	    -o treegrav_mod$X.o -c treegrav_mod.c
 
-##  Generate listings.
+##  Generate listing.
 ##  _________________
 
 treecode.pdf: treecode.c treecode.h treeio.c treedefs.h treebuild.c \

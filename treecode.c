@@ -48,7 +48,7 @@ string defv[] = {
   "log=-",			";Diagnostic log: defaults to stdout;",
 				";writes CSV file if name ends in .csv;",
 				";suppress log output entirely if null.",
-  "VERSION=2.1.0-EXP",		";Joshua Barnes  21 March 2026",
+  "VERSION=2.1.0-exp",		";Joshua Barnes  22 March 2026",
   NULL,
 };
 

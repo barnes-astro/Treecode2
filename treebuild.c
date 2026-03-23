@@ -3,10 +3,10 @@
  * Copyright (c) 2025 by Joshua E. Barnes, Honolulu, Hawaii.
  */
 
-#include "stdinc.h"
-#include "mathfns.h"
-#include "vectmath.h"
-#include "getparam.h"
+#include "clib/stdinc.h"
+#include "clib/mathfns.h"
+#include "clib/vectmath.h"
+#include "clib/getparam.h"
 #include <assert.h>
 
 #include "treedefs.h"

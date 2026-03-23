@@ -1,15 +1,16 @@
 /*
- * treecode.h: define various things for treecode.c and treeio.c.
- * Copyright (c) 2025 by Joshua E. Barnes, Honolulu, Hawaii.
+ * treecode.h: define global things for treecode.c and treeio.c.
+ * Copyright (c) 2026 by Joshua E. Barnes, Honolulu, Hawaii.
  */
 
 #ifndef _treecode_h
 #define _treecode_h
 
-#include "stdinc.h"
-#include "mathfns.h"
-#include "vectmath.h"
-#include "getparam.h"
+#include "clib/stdinc.h"
+#include "clib/mathfns.h"
+#include "clib/vectmath.h"
+#include "clib/getparam.h"
+
 #include "treedefs.h"
 
 //  Parameters, state variables, and diagnostics for N-body integration.
@@ -46,7 +47,5 @@ void inputdata(void);			// read initial data file
 void startoutput(string defv[]);	// open files for output
 void forcereport(treeptr tptr);		// report on force calculation
 void output(void);			// perform output operation
-void savestate(void);			// save system state		
-void restorestate(void);		// restore system state
 
 #endif // ! _treecode_h
